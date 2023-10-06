@@ -8,6 +8,7 @@ package proyectofinal;
 import AccesoDatos.CiudadData;
 import AccesoDatos.Conexion;
 import Entidades.Ciudad;
+import java.util.List;
 
 /**
  *
@@ -23,9 +24,17 @@ public class ProyectoFinal {
         
         //System.out.println(Conexion.getConexion());
         
-        Ciudad buenosAires = new Ciudad("Capital Federal", "Buenos Aires", "Argentina", true);
+        Ciudad buenosAires = new Ciudad("Manhattan", "New York", "Estados Unidos", true);
+        //buenosAires.setIdCiudad(1);
         CiudadData cd = new CiudadData();
-        cd.crearCiudad(buenosAires);
+        //cd.crearCiudad(buenosAires);
+        //System.out.println(cd.buscarCiudadPorId(1).toString());
+        //cd.eliminarCiudad(2);
+        //cd.modificarCiudad(buenosAires);
+        //List <Ciudad> ciudades = cd.listarCiudades();
+        /*for (Ciudad ciudad : ciudades) {
+            System.out.println(ciudad.toString());
+        }*/
     }
     
 }
