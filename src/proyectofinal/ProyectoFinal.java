@@ -29,7 +29,7 @@ public class ProyectoFinal {
         CiudadData cd = new CiudadData();
         //cd.crearCiudad(buenosAires);
         //System.out.println(cd.buscarCiudadPorId(1).toString());
-        //cd.eliminarCiudad(2);
+        cd.eliminarCiudad(2);
         //cd.modificarCiudad(buenosAires);
         //List <Ciudad> ciudades = cd.listarCiudades();
         /*for (Ciudad ciudad : ciudades) {
