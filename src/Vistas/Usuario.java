@@ -44,7 +44,7 @@ public class Usuario extends javax.swing.JInternalFrame {
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(394, 549));
+        jPanel1.setPreferredSize(new java.awt.Dimension(394, 349));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Seleccione ciudad origen:");
