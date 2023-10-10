@@ -30,11 +30,12 @@ public class Usuariodata {
     }
      
     public void crearUsuario(Usuario usuario) {
-        String sql = "INSERT INTO usuario (user, password) VALUES (?, ?)";
+        String sql = "INSERT INTO usuario (nombre, password, estado) VALUES (?, ?, ?)";
         try{
              PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-             ps.setString(1, usuario.getUser());
+             ps.setString(1, usuario.getNombre());
              ps.setInt(2, usuario.getPassword());
+             ps.setBoolean(3, usuario.isEstado());
              ps.executeUpdate();
              ResultSet rs = ps.getGeneratedKeys();
              System.out.println(rs);
@@ -48,16 +49,19 @@ public class Usuariodata {
          } 
     }
     
-    public Usuario buscarUsuarioPorId(String user, int password) {
-        Usuario usuario = new Usuario();
-        String sql = "SELECT * FROM usuario WHERE user = ? and password = ?";
+    public Usuario buscarUsuarioPorId(String nombre, int password) {
+        Usuario usuario = null;
+        String sql = "SELECT * FROM usuario WHERE nombre = ? and password = ?";
         PreparedStatement ps = null; 
         try{
             ps = con.prepareStatement(sql);
-            ps.setString(1, user);
+            ps.setString(1, nombre);
             ps.setInt(2, password);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
+                
+                usuario = new Usuario();
+                
                 JOptionPane.showMessageDialog(null, "Usuario Correcto");
             }else{
                 JOptionPane.showMessageDialog(null, "Usuario no encontrado");

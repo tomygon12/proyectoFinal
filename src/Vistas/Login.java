@@ -8,6 +8,7 @@ package Vistas;
 import AccesoDatos.Usuariodata;
 import Entidades.Usuario;
 import java.awt.BorderLayout;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -118,17 +119,46 @@ public class Login extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         String us = jTextuser.getText();
-        int password = Integer.parseInt(jTextpassword.getText());
-        Usuariodata user = new Usuariodata();
+        String passwordcomp = jTextpassword.getText();
+        
+        if(us.isEmpty() || passwordcomp.isEmpty()){
+        
+           JOptionPane.showMessageDialog(null, "Ambos campos deben estar llenos con datos.");
+           return; 
+  
+        }
+        
+        if(!us.matches("[a-zA-Z]+")){
+        
+            JOptionPane.showMessageDialog(null, "El nombre de usuario solo debe contener letras.");
+            return;
+            
+        }
+        
+        if(!passwordcomp.matches("[0-9]+")){
+        
+            JOptionPane.showMessageDialog(null, "La contraseña solo debe contener números.");
+            return;
+        
+        }
+        
+        int password = Integer.parseInt(passwordcomp);
+        Usuariodata userData = new Usuariodata();
         Usuario comp = new Usuario();
         
-        comp.setUser(us);
+        comp.setNombre(us);
         comp.setPassword(password);
-        user.buscarUsuarioPorId(us, password);
         
+        Usuario user = userData.buscarUsuarioPorId(us, password);
         
+       
+        if(user == null){
         
-        MenuAdmin menu = new MenuAdmin();
+            JOptionPane.showMessageDialog(null, "El usuario o la contraseña son incorrectos.");
+        
+        }else{
+        
+            MenuAdmin menu = new MenuAdmin();
         
         menu.setSize(865, 699);
         menu.setLocation(0, 0);
@@ -141,8 +171,9 @@ public class Login extends javax.swing.JPanel {
         jPescritoriouser.add(menu, BorderLayout.CENTER);
         jPescritoriouser.revalidate();
         menu.setResizable(false);
-       
-       
+        
+        }
+        
         
         
     }//GEN-LAST:event_jBiniciarActionPerformed

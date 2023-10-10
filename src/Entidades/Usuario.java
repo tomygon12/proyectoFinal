@@ -11,14 +11,17 @@ package Entidades;
  */
 public class Usuario {
     private int idUsuario;
-    private String user;
+    private String nombre;
     private int password;
+    private boolean estado;
+   
     
     public Usuario(){}
 
-    public Usuario(String user, int password) {
-        this.user = user;
+    public Usuario(String nombre, int password, boolean estado) {
+        this.nombre = nombre;
         this.password = password;
+        this.estado = estado;
     }
     
     public Usuario(int idUsuario){
@@ -35,12 +38,12 @@ public class Usuario {
         this.idUsuario = idUsuario;
     }
 
-    public String getUser() {
-        return user;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getPassword() {
@@ -49,6 +52,14 @@ public class Usuario {
 
     public void setPassword(int password) {
         this.password = password;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
     
     
