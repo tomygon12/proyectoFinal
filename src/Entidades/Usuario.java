@@ -8,13 +8,15 @@ package Entidades;
 /**
  *
  * @author Leo_1
+=======
+ * @author Tomas
+
  */
 public class Usuario {
     private int idUsuario;
     private String nombre;
     private int password;
-    private boolean estado;
-   
+    private boolean estado;   
     
     public Usuario(){}
 
@@ -23,11 +25,11 @@ public class Usuario {
         this.password = password;
         this.estado = estado;
     }
-    
-    public Usuario(int idUsuario){
-    
-        this.idUsuario = idUsuario;
-    
+
+    public Usuario(String nombre, int password) {
+        this.nombre = nombre;
+        this.password = password;
+        this.estado = true;
     }
 
     public int getIdUsuario() {
@@ -61,7 +63,5 @@ public class Usuario {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
-    
     
 }
