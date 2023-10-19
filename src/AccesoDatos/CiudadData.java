@@ -33,22 +33,22 @@ public class CiudadData {
     public void crearCiudad(Ciudad ciudad) {
         String sql = "INSERT INTO ciudad (nombre, pais, provincia, estado) VALUES (?, ?, ?, ?)";
         try{
-             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-             ps.setString(1, ciudad.getNombre());
-             ps.setString(2, ciudad.getPais());
-             ps.setString(3, ciudad.getProvincia());
-             ps.setBoolean(4, ciudad.isEstado());
-             ps.executeUpdate();
-             ResultSet rs = ps.getGeneratedKeys();
-             System.out.println(rs);
-             if(rs.next()){     
-                 ciudad.setIdCiudad(rs.getInt(1));
-                 JOptionPane.showMessageDialog(null, "Ciudad añadida con éxito.");
-             }
-             ps.close();
-         }catch(SQLException ex){
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, ciudad.getNombre());
+            ps.setString(2, ciudad.getPais());
+            ps.setString(3, ciudad.getProvincia());
+            ps.setBoolean(4, ciudad.isEstado());
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            System.out.println(rs);
+            if(rs.next()){     
+                ciudad.setIdCiudad(rs.getInt(1));
+                JOptionPane.showMessageDialog(null, "Ciudad añadida con éxito.");
+            }
+            ps.close();
+        }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Ciudad" + ex.getMessage());
-         } 
+        } 
     }
     
     public Ciudad buscarCiudadPorId(int id) {

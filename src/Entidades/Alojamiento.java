@@ -14,6 +14,7 @@ import java.time.LocalDate;
 public class Alojamiento {
     
     private int idAlojamiento;
+    private String tipoAlojamiento;
     private LocalDate fechaIn;
     private LocalDate fechaOn;
     private boolean estado;
@@ -24,7 +25,8 @@ public class Alojamiento {
     public Alojamiento() {
     }
 
-    public Alojamiento(LocalDate fechaIn, LocalDate fechaOn, boolean estado, String servicio, double importeDiario, Ciudad ciudadDestino) {
+    public Alojamiento(String tipoAlojamiento, LocalDate fechaIn, LocalDate fechaOn, boolean estado, String servicio, double importeDiario, Ciudad ciudadDestino) {
+        this.tipoAlojamiento = tipoAlojamiento;
         this.fechaIn = fechaIn;
         this.fechaOn = fechaOn;
         this.estado = estado;
@@ -43,6 +45,14 @@ public class Alojamiento {
 
     public void setIdAlojamiento(int idAlojamiento) {
         this.idAlojamiento = idAlojamiento;
+    }
+
+    public String getTipoAlojamiento() {
+        return tipoAlojamiento;
+    }
+
+    public void setTipoAlojamiento(String tipoAlojamiento) {
+        this.tipoAlojamiento = tipoAlojamiento;
     }
 
     public LocalDate getFechaIn() {
